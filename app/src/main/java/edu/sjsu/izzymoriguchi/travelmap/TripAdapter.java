@@ -1,5 +1,6 @@
 package edu.sjsu.izzymoriguchi.travelmap;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -57,7 +58,9 @@ public class TripAdapter extends RecyclerView.Adapter<TripAdapter.ViewHolder> {
             int position = getAdapterPosition();
             // Log.d(TAG, "onClick: ");
             if (position != RecyclerView.NO_POSITION) { // Check if an item was deleted, but the user clicked it before the UI removed it
-                Toast.makeText(v.getContext(), tripName.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(v.getContext(), "Trip - " + tripName.getText() + " clicked", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(v.getContext(), TripDetailActivity.class);
+                v.getContext().startActivity(intent);
             }
         }
     }
